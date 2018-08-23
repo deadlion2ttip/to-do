@@ -20,6 +20,15 @@ class App extends Component {
     this.handleTitleChange = this.handleTitleChange.bind(this)
   }
   
+  componentDidMount(){
+    console.log(JSON.parse(localStorage.getItem('to-do-list')))
+    if (localStorage.getItem('to-do-list')){
+    this.setState({
+      reminders: JSON.parse(localStorage.getItem('to-do-list'))
+    })
+  }
+  }
+
   deleteReminder(index){
    
     let newReminders = this.state.reminders.filter((reminder, i) => {
@@ -29,6 +38,8 @@ class App extends Component {
         return true
       }
     })
+
+    localStorage.setItem('to-do-list', JSON.stringify(newReminders))
     this.setState({
       reminders: newReminders
     })
@@ -55,6 +66,9 @@ class App extends Component {
     })
 
     let newReminders = this.state.reminders.concat([[title, description]])
+
+    localStorage.setItem('to-do-list', JSON.stringify(newReminders))
+
     this.setState({
       reminders: newReminders
     })
