@@ -2,11 +2,11 @@ import React, {Component} from 'react'
 
 function ReminderCard(props){
     return(
-        <li class='reminder-Card' key={props.title}>
-            <h3 class='reminder-Title'>
+        <li className='reminder-Card' key={props.title}>
+            <h3 className='reminder-Title'>
                 {props.title}
             </h3>
-            <p class='remider-Description'>
+            <p className='remider-Description'>
                 {props.description}
             </p>
         </li>

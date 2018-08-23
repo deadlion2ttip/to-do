@@ -1,7 +1,7 @@
 body{
   background: lightskyblue;
 }
-#root{
+#App{
   width: 90%;
   height: 100%;
   margin-left: auto;
@@ -13,12 +13,13 @@ body{
 }
 #body-Column{
 border: 3px solid black;
-border-radius: 10%;
+border-radius: 4%;
 margin: 10px;
+padding: 20px;
 grid-row: 2;
 display: flex;
 flex-direction: column;
-justify-content: space-around;
+justify-content: flex-start;
 }
 header{
   color:white;
@@ -43,4 +44,15 @@ header{
   border-radius: 4%;
   margin: 5px 0 5px 0;
   padding: 5px;
+}
+.form-Wrap{
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 10px 0;
+}
+input{
+  border-radius: 3%;
+}
+#description-Input{
+  height: 300px;
 }
