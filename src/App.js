@@ -14,11 +14,26 @@ class App extends Component {
       oldReminders: []
     }
     
+    this.deleteReminder = this.deleteReminder.bind(this)
     this.addReminder = this.addReminder.bind(this)
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
     this.handleTitleChange = this.handleTitleChange.bind(this)
   }
   
+  deleteReminder(index){
+   
+    let newReminders = this.state.reminders.filter((reminder, i) => {
+      if (i === index){
+        return false
+      } else {
+        return true
+      }
+    })
+    this.setState({
+      reminders: newReminders
+    })
+  }
+
   handleTitleChange(event) {
     this.setState({
       titleValue: event.target.value
@@ -53,13 +68,18 @@ class App extends Component {
       <div id="App">
       <header>Initial Reaction</header>
       <BodyColumn
+
       descriptionValue={this.state.descriptionValue}
       handleDescription={this.handleDescriptionChange}
       titleValue={this.state.titleValue} 
       handleTitle={this.handleTitleChange}
       addReminder={this.addReminder}
       />
-      <ListColumn reminders = {this.state.reminders} />
+      <ListColumn 
+      
+      reminders = {this.state.reminders}
+      delete = {this.deleteReminder}
+       />
       </div>
     );
   }
